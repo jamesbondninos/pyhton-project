@@ -61,4 +61,15 @@ class CustomerResetPass(serializers.Serializer):
         user.save()
         return user
               
+class CustomerForgotPass(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+    
+    def save(self, **kwargs):
+        email = self.validated_data.get("email")
+        password = self.validated_data.get("password")  
         
+        user = Customer.objects.get(email=email)
+        user.password = make_password(password)
+        user.save()
+        return user     
