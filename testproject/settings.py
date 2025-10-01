@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'index',
     'user',
     'students',
-    'cutomer'
+    'cutomer',
+    'vendor',
+    'libaray'
 ]
 
 MIDDLEWARE = [

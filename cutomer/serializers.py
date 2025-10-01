@@ -31,8 +31,7 @@ class CustomerSerializers(serializers.ModelSerializer):
     #     if "password" in value:
     #         value['password'] = make_password(value['password'])
     #     return super().create(value)    
-        
-        
+               
 class CustomerResetPass(serializers.Serializer):
     email = serializers.EmailField()
     new_password = serializers.CharField(write_only=True, min_length=4)
